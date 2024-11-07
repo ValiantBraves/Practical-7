@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Define the simple type for genre -->
+  <xs:simpleType name="genreType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="science-fiction"/>
+      <xs:enumeration value="mystery"/>
+      <xs:enumeration value="thriller"/>
+      <xs:enumeration value="drama"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Define the author element -->
+  <xs:complexType name="authorType">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+      <xs:element name="penName" type="xs:string" minOccurs="0"/>
+      <xs:element name="bio" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the book element -->
+  <xs:complexType name="bookType">
+    <xs:sequence>
+      <xs:element name="bookId" type="xs:string"/>
+      <xs:element name="bookName" type="xs:string"/>
+      <xs:element name="genre" type="genreType"/>
+      <xs:element name="publishDate" type="xs:date"/>
+      <xs:element name="authors" type="authorType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the price element -->
+  <xs:element name="price">
+    <xs:simpleType>
+      <xs:restriction base="xs:decimal">
+        <xs:minExclusive value="0"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- Define the line-item element -->
+  <xs:complexType name="lineItemType">
+    <xs:sequence>
+      <xs:element name="book" type="bookType"/>
+      <xs:element name="quantity" type="xs:int"/>
+      <xs:element name="price" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the order element -->
+  <xs:complexType name="orderType">
+    <xs:sequence>
+      <xs:element name="orderId" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="requestDate" type="xs:date"/>
+      <xs:element name="lineItem" type="lineItemType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the root element -->
+  <xs:element name="order" type="orderType"/>
+
+</xs:schema>

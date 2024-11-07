@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance P3.xsd">
+  <orderId>ORD12345</orderId>
+  <description>Book Order</description>
+  <requestDate>2024-11-06</requestDate>
+  <lineItem>
+    <book>
+      <bookId>BOOK001</bookId>
+      <bookName>Science Fiction 101</bookName>
+      <genre>science-fiction</genre>
+      <publishDate>2023-05-01</publishDate>
+      <authors>
+        <firstName>John</firstName>
+        <lastName>Doe</lastName>
+        <penName>J.D.</penName>
+        <bio>John Doe is a well-known author in the science fiction genre.</bio>
+      </authors>
+      <authors>
+        <firstName>Jane</firstName>
+        <lastName>Smith</lastName>
+        <bio>Jane Smith is a renowned author and co-writer.</bio>
+      </authors>
+    </book>
+    <quantity>2</quantity>
+    <price>19.99</price>
+  </lineItem>
+  <lineItem>
+    <book>
+      <bookId>BOOK002</bookId>
+      <bookName>Mystery at Midnight</bookName>
+      <genre>mystery</genre>
+      <publishDate>2022-08-15</publishDate>
+      <authors>
+        <firstName>Alice</firstName>
+        <lastName>Johnson</lastName>
+        <bio>Alice Johnson specializes in writing mystery novels.</bio>
+      </authors>
+    </book>
+    <quantity>1</quantity>
+    <price>14.95</price>
+  </lineItem>
+</order>
